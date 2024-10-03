@@ -20,6 +20,7 @@ from task_management_system_app import views
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth.views import LogoutView
+from django.contrib.auth.views import LoginView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -36,4 +37,5 @@ urlpatterns = [
     path('tasks/update/<int:task_id>/', views.update_task, name='update_task'),
     path('tasks/delete/<int:task_id>/', views.delete_task, name='delete_task'),
     path('task-chart/', views.task_chart, name='task_chart'),
+    path('accounts/login/', LoginView.as_view(template_name='task_management_system_app/login.html'), name='login'),
 ]
